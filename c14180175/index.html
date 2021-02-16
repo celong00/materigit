@@ -1,1 +1,35 @@
-C14180175 - Michael Alexander Rustan
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+	<title></title>
+</head>
+<script type="text/javascript">
+	function CariHasilnya(){
+		var date1 = $("#date").datepicker({ dateFormat: 'dd,MM,yyyy' }).val();
+		console.log(date1)
+		var today = new Date();
+		var dd = String(today.getDate()).padStart(2, '0');
+		var mm = String(today.getMonth() + 1).padStart(2, '0');
+		var yyyy = today.getFullYear();
+		today = yyyy + '-' + mm + '-' + dd;
+
+		var HariiniDate= new Date(today);
+
+		var Hariini = HariiniDate.getTime();
+        var PilihHari = new Date(date1).getTime();
+		var check = Hariini - PilihHari
+		if(check <0){
+			check = check * -1
+		}
+		var checkAll= check / (86400000);
+		alert("Selisih Hari = "+checkAll+" Hari") 
+}
+</script>
+<body>
+	<input type="date" name="" id="date">
+	<button onclick="CariHasilnya()">Check</button>
+</body>
+</html>
