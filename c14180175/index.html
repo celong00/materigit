@@ -9,18 +9,11 @@
 <script type="text/javascript">
 	function CariHasilnya(){
 		var date1 = $("#date").datepicker({ dateFormat: 'dd,MM,yyyy' }).val();
+		var date2 = $("#date2").datepicker({ dateFormat: 'dd,MM,yyyy' }).val();
 		console.log(date1)
-		var today = new Date();
-		var dd = String(today.getDate()).padStart(2, '0');
-		var mm = String(today.getMonth() + 1).padStart(2, '0');
-		var yyyy = today.getFullYear();
-		today = yyyy + '-' + mm + '-' + dd;
-
-		var HariiniDate= new Date(today);
-
-		var Hariini = HariiniDate.getTime();
+		var PilihHari2 = new Date(date2).getTime();
         var PilihHari = new Date(date1).getTime();
-		var check = Hariini - PilihHari
+		var check = PilihHari- PilihHari2
 		if(check <0){
 			check = check * -1
 		}
@@ -30,6 +23,7 @@
 </script>
 <body>
 	<input type="date" name="" id="date">
+	<input type="date" name="" id="date2">
 	<button onclick="CariHasilnya()">Check</button>
 </body>
 </html>
